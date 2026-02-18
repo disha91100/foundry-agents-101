@@ -28,6 +28,9 @@ resource webApp 'Microsoft.Web/sites@2023-12-01' = {
   name: webAppName
   location: location
   tags: union(tags, { 'azd-service-name': 'backend' })
+  identity: {
+    type: 'SystemAssigned'
+  }
   properties: {
     serverFarmId: appServicePlan.id
     httpsOnly: true
@@ -52,3 +55,4 @@ resource webApp 'Microsoft.Web/sites@2023-12-01' = {
 output webAppName string = webApp.name
 output webAppUrl string = 'https://${webApp.properties.defaultHostName}'
 output webAppHostName string = webApp.properties.defaultHostName
+output webAppPrincipalId string = webApp.identity.principalId

@@ -1,7 +1,12 @@
 from mcp.server.fastmcp import FastMCP
+from mcp.server.transport_security import TransportSecuritySettings
 from lightbulb import lightbulb, Color
 
-mcp = FastMCP("Lightbulb MCP Server", streamable_http_path="/")
+mcp = FastMCP(
+    "Lightbulb MCP Server",
+    streamable_http_path="/",
+    transport_security=TransportSecuritySettings(enable_dns_rebinding_protection=False),
+)
 
 
 @mcp.tool()

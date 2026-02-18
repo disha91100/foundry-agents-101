@@ -35,7 +35,8 @@ module foundry 'modules/foundry.bicep' = {
   name: 'foundry'
   scope: resourceGroup
   params: {
-    foundryName: 'foundry-${resourceToken}'
+    accountName: 'foundry-${resourceToken}'
+    projectName: 'agents-lab'
     location: location
     tags: tags
   }
@@ -46,13 +47,23 @@ module bingGrounding 'modules/bing-grounding.bicep' = {
   scope: resourceGroup
   params: {
     bingName: 'bing-${resourceToken}'
+    foundryName: foundry.outputs.accountName
     tags: tags
+  }
+}
+
+module roleAssignments 'modules/role-assignments.bicep' = {
+  name: 'role-assignments'
+  scope: resourceGroup
+  params: {
+    principalId: appService.outputs.webAppPrincipalId
+    foundryId: foundry.outputs.accountId
   }
 }
 
 output AZURE_RESOURCE_GROUP string = resourceGroup.name
 output AZURE_WEBAPP_NAME string = appService.outputs.webAppName
 output AZURE_WEBAPP_URL string = appService.outputs.webAppUrl
-output AZURE_FOUNDRY_NAME string = foundry.outputs.foundryName
-output AZURE_FOUNDRY_ENDPOINT string = foundry.outputs.foundryEndpoint
+output AZURE_FOUNDRY_NAME string = foundry.outputs.accountName
+output AZURE_FOUNDRY_ENDPOINT string = foundry.outputs.accountEndpoint
 output AZURE_BING_NAME string = bingGrounding.outputs.bingName
