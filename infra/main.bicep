@@ -6,7 +6,7 @@ targetScope = 'resourceGroup'
 param environmentName string
 
 @description('Primary Azure region for resources')
-param location string
+param location string = resourceGroup().location
 
 var tags = {
   'azd-env-name': environmentName
