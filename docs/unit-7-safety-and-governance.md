@@ -18,12 +18,12 @@ By the end of this unit, your agent won't just be capable — it will be **produ
 
 Before starting this unit, make sure you have:
 
-- ✅ Completed [Unit 4: Crafting Instructions & Conversational Flow](./unit-4-instructions-and-flow.md) (and all preceding units)
+- ✅ Completed [Unit 6: MCP Tools & State Management](./unit-6-mcp-tools-state.md) (and all preceding units)
 - ✅ Your **Lightbulb-Agent** agent is working in the Foundry playground with Bing Grounding, MCP connections, and structured instructions
 - ✅ Access to the [Microsoft Foundry portal](https://ai.azure.com)
 - ✅ A few minutes of creative thinking — you'll be playing the role of a "red teamer" testing your own agent
 
-> **📝 Note:** This unit builds on the structured instructions you created in Unit 4. If your agent's instructions are still the basic system prompt from Unit 1, go back and complete Unit 4 first — the safety patterns in this unit layer on top of well-structured instructions.
+> **📝 Note:** This unit builds on the structured instructions you created in Unit 4 and the MCP tool connections from Units 5 and 6. If your agent's instructions are still the basic system prompt from Unit 1, go back and complete the earlier units first — the safety patterns in this unit layer on top of well-structured instructions and working tool connections.
 
 ---
 
