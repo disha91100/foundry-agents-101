@@ -58,7 +58,7 @@ module userRoleAssignments 'modules/role-assignments.bicep' = {
   name: 'user-role-assignments'
   params: {
     principalId: foundryUserPrincipalId
-    principalType: 'User'
+    principalType: 'ServicePrincipal'
     foundryId: foundry.outputs.accountId
   }
 }
