@@ -2,8 +2,7 @@
 param principalId string
 
 @description('Principal type')
-param principalType string = 'ServicePrincipal'
-
+param principalType string 
 @description('Resource ID of the Foundry account')
 param foundryId string
 
