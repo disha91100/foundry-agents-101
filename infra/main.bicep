@@ -9,7 +9,7 @@ param environmentName string
 param location string = resourceGroup().location
 
 @description('Principal ID of the user who needs Foundry access (defaults to the deployer)')
-param foundryUserPrincipalId string = deployer().objectId
+param foundryUserPrincipalId string
 
 var tags = {
   'azd-env-name': environmentName
@@ -50,6 +50,7 @@ module roleAssignments 'modules/role-assignments.bicep' = {
   name: 'role-assignments'
   params: {
     principalId: appService.outputs.webAppPrincipalId
+    principalType: 'ServicePrincipal'
     foundryId: foundry.outputs.accountId
   }
 }
@@ -58,7 +59,7 @@ module userRoleAssignments 'modules/role-assignments.bicep' = {
   name: 'user-role-assignments'
   params: {
     principalId: foundryUserPrincipalId
-    principalType: 'ServicePrincipal'
+    principalType: 'User'
     foundryId: foundry.outputs.accountId
   }
 }
