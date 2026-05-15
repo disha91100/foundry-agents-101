@@ -7,6 +7,9 @@
     },
     "location": {
       "value": "${AZURE_LOCATION}"
+    },
+    "foundryUserObjectId": {
+      "value": "${AZURE_USER_OBJECT_ID}"
     }
   }
 }
